@@ -1,17 +1,57 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {useState} from 'react';
+import { render } from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import LiquidConverter from './LiquidConverter';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function literToGallon(liter) {
+    return Number(liter * 0.264172).toFixed(2);
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function literToPint(liter) {
+    return Number(liter * 2.113376).toFixed(2);
+}
+
+function gallonToLiter(gallon) {
+    return Number(gallon / 0.264172).toFixed(2);
+}
+
+function gallonToPint(gallon) {
+    return Number(gallon * 8).toFixed(2);
+}
+
+function pintToLiter(pint) {
+    return Number(pint / 2.113376).toFixed(2);
+}
+function pintToGallon(pint) {
+    return Number(pint / 8).toFixed(2);
+}
+
+var App = () => {
+    let [liter, setLiter] = useState(0);
+    let [pint, setPint] = useState(() => literToPint(liter));
+    let [gallon, setGallon] = useState(() => literToGallon(liter));
+
+    var handleLiterChange = function(e) {
+        setLiter(e.target.value);
+        setPint(literToPint(e.target.value));
+        setGallon(literToGallon(e.target.value));
+    };
+    var handlePintChange = function(e) {
+        setPint(e.target.value);
+        setLiter(pintToLiter(e.target.value));
+        setGallon(pintToGallon(e.target.value));
+    };
+    var handleGallonChange = function(e) {
+        setGallon(e.target.value);
+        setPint(gallonToPint(e.target.value));
+        setLiter(gallonToLiter(e.target.value));
+    };
+    return (
+        <>
+        <LiquidConverter unit='l' liquid={liter} onChange={handleLiterChange} />
+        <LiquidConverter unit='p' liquid={pint} onChange={handlePintChange} />
+        <LiquidConverter unit='g' liquid={gallon} onChange={handleGallonChange} />
+        </>
+    )
+}
+render(<App/>, document.getElementById('root'));
