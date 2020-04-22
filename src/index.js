@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { render } from 'react-dom';
 import './index.css';
 import LiquidConverter from './LiquidConverter';
+import TicTac from './TicTac';
 
 function literToGallon(liter) {
     return Number(liter * 0.264172).toFixed(2);
@@ -54,4 +55,4 @@ var App = () => {
         </>
     )
 }
-render(<App/>, document.getElementById('root'));
+render(<TicTac/>, document.getElementById('root'));
