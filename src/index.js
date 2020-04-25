@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import './index.css';
 import LiquidConverter from './LiquidConverter';
 import TicTac from './TicTac';
+import ContactFormAjax from './ContactFormAjax';
 
 function literToGallon(liter) {
     return Number(liter * 0.264172).toFixed(2);
@@ -55,4 +56,4 @@ var App = () => {
         </>
     )
 }
-render(<TicTac/>, document.getElementById('root'));
+render(<ContactFormAjax/>, document.getElementById('root'));
