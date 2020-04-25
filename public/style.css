@@ -27,3 +27,19 @@ body {
     margin-bottom: 15px;
     margin-right: 5px;
   }
+
+  .error {
+    background-color: #ffdddd;
+    border: 1px solid #ce6363;
+    font-size: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+  
+  .msgContainer {
+    background-color: #dfffdd;
+    border: 1px solid #889687;
+    font-size: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
