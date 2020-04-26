@@ -15,7 +15,7 @@ function Score(props)
     }
     return (
         <div>
-            <p>Score is {score} for the {props.name}</p>
+            <p>Score is {score} for {props.name}</p>
             <button onClick={increaseScore}>+</button><button onClick={decreaseScore}>-</button>
             <button onClick={() => setScore(0)}>Reset</button>
         </div>

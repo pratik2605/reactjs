@@ -1,6 +1,6 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
-var winningCombos = ["012", "345", "678", "036", "147", "258", "048", "246"];
+// var winningCombos = ["012", "345", "678", "036", "147", "258", "048", "246"];
 
 var initialState = {
     fields: Array(9).fill(false), // start with array of 9 with false filled in

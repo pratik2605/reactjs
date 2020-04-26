@@ -1,59 +1,39 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { render } from 'react-dom';
-import './index.css';
-import LiquidConverter from './LiquidConverter';
-import TicTac from './TicTac';
-import ContactFormAjax from './ContactFormAjax';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Nav } from './components/nav';
+import { LiquidConverterCalc } from './components/LiquidConverterCalc'
+import Score from './components/Score'
+import { TempConverterCalc } from './components/TempConverterCalc'
+import TicTac from './components/TicTac'
+import ContactForm from './components/ContactForm'
+import ContactFormAjax from './components/ContactFormAjax'
+import List from './components/List'
+import { ProfileList } from './components/ProfileList'
 
-function literToGallon(liter) {
-    return Number(liter * 0.264172).toFixed(2);
-}
-
-function literToPint(liter) {
-    return Number(liter * 2.113376).toFixed(2);
-}
-
-function gallonToLiter(gallon) {
-    return Number(gallon / 0.264172).toFixed(2);
-}
-
-function gallonToPint(gallon) {
-    return Number(gallon * 8).toFixed(2);
-}
-
-function pintToLiter(pint) {
-    return Number(pint / 2.113376).toFixed(2);
-}
-function pintToGallon(pint) {
-    return Number(pint / 8).toFixed(2);
-}
-
-var App = () => {
-    let [liter, setLiter] = useState(0);
-    let [pint, setPint] = useState(() => literToPint(liter));
-    let [gallon, setGallon] = useState(() => literToGallon(liter));
-
-    var handleLiterChange = function(e) {
-        setLiter(e.target.value);
-        setPint(literToPint(e.target.value));
-        setGallon(literToGallon(e.target.value));
-    };
-    var handlePintChange = function(e) {
-        setPint(e.target.value);
-        setLiter(pintToLiter(e.target.value));
-        setGallon(pintToGallon(e.target.value));
-    };
-    var handleGallonChange = function(e) {
-        setGallon(e.target.value);
-        setPint(gallonToPint(e.target.value));
-        setLiter(gallonToLiter(e.target.value));
-    };
+const App = () => {
     return (
-        <>
-        <LiquidConverter unit='l' liquid={liter} onChange={handleLiterChange} />
-        <LiquidConverter unit='p' liquid={pint} onChange={handlePintChange} />
-        <LiquidConverter unit='g' liquid={gallon} onChange={handleGallonChange} />
-        </>
+        <Router>
+            <Nav />
+            <Route path="/" exact component={Home} />
+            <Route path="/liquid-converter" component={LiquidConverterCalc} />
+            <Route path="/score" render={() => <Score name = {'Pratik'} />} />
+            <Route path="/temp-converter" component={TempConverterCalc} />
+            <Route path="/contact" component={ContactForm} />
+            <Route path="/contact-ajax" component={ContactFormAjax} />
+            <Route path="/list" render={() => <List optionsList = {["One", "Two", "Three"]}/>} />
+            <Route path="/profile-list" component={ProfileList} />
+            <Route path="/tic-tac" component={TicTac} />
+        </Router>
     )
 }
-render(<ContactFormAjax/>, document.getElementById('root'));
+
+const Home = () => {
+    return (
+        <p>
+            Some exercises done while learning React.
+        </p>
+    )
+}
+
+render(<App />, document.getElementById('root'))

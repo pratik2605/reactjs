@@ -14,7 +14,7 @@ function List(props) {
     })
     return (
       <div style={props.cfg}>
-        {msg && <span>{msg}</span>}
+        {msg && <p>{msg}</p>}
         <h3>Q: Who do you want to be when you grow up?</h3>
         <select>
           {optionsList}
