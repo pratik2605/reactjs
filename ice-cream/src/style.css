@@ -1,0 +1,83 @@
+h1, p {
+  font-family: Lato;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(56,254,125,1) 0%, rgba(17,232,201,1) 100%);
+  overflow: hidden;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: ceneter;
+}
+
+.wrapper {
+  background: black;
+  width: 600px;
+  border: 3px solid black;
+  border-radius: 5px;
+      box-shadow: 10px 10px #1d9466;
+}
+
+.shop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ice-cream-container {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 3px solid black;
+}
+
+.icecream {
+  flex-grow: 1;
+  width: 33%;
+  cursor: pointer;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.icecream:hover {
+  opacity: 0.75;
+}
+
+.selected-icecream {
+  display: flex;
+  flex-wrap: wrap;
+  width: 308px;
+  padding: 10px 15px;
+  padding-left: 80px;
+  background: black;
+  color: white;
+  overflow: hidden;
+}
+
+.summary {
+  text-align: center;
+  overflow: hidden;
+  width: 200px;
+}
+
+.cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: white;
+}
+
+.icecream-count {
+  flex-grow: 1;
+  width: 50%;
+}
