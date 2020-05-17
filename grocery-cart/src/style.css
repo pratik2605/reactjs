@@ -1,0 +1,29 @@
+h1, p {
+    font-family: Lato;
+  }
+  
+  .item-row {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid blueviolet;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  button {
+    height: 100%;
+    width: 100px;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .add {
+    background: darkcyan;
+  }
+  
+  .remove {
+    background: darkred;
+  }
